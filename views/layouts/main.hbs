@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <META HTTP-EQUIV="Content-Type" CONTENT="application/javascript;">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  <link rel="shortcut icon" href="css/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="css/favicon.ico" type="image/x-icon">
+  <!-- <script src="/socket.io/socket.io.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>AllergyCork</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script type="text/javascript">
+  var socket = io();
+  $(document).ready(function() {
+    console.log("javascript ACtivado");
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    socket.on('connect', () => {console.log("mi_id:"+socket.id)});
+  });
+  </script>
+</head>
+<body>
+  {{>navigation}}
+  {{{body}}}
+  {{>footer}}
+</body>
+</html>
