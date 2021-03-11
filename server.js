@@ -7,8 +7,8 @@ var httpx = require('http').Server(app);
 const io = require('socket.io')(httpx, { cookie: false });
 const chalk=require('chalk');
 
-app.use(express.static(__dirname + '/public/'));
-app.use('/img', express.static(__dirname + '/public/images/'));
+app.use(express.static(__dirname + '/public'));
+app.use('/images', express.static(__dirname + '/public/images/'));
 app.use('/', express.static(__dirname + '/'));
 app.use(require(__dirname + '/routes'));
 
@@ -25,7 +25,7 @@ io.on('connect', async function(socket) {
 
     });
 app.set('port', process.env.PORT || 3000);
-app.listen( process.env.PORT,()=>{
+app.listen(3000,()=>{
   console.log("server started on port 3000");
 
 })
