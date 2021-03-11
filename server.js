@@ -24,8 +24,8 @@ io.on('connect', async function(socket) {
   });
 
     });
-
-app.listen(3000,()=>{
+app.set('port', process.env.PORT || 3000);
+app.listen( process.env.PORT,()=>{
   console.log("server started on port 3000");
 
 })
